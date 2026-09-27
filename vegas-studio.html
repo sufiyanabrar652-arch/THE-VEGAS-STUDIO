@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Vegas Studio — Rooftop Lounge, Clifton Karachi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#14110f; --bg-alt:#1c1713; --line:#332a23;
+  --gold:#c8a24d; --wine:#7a2331; --cream:#ece5d8; --muted:#9c9184;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*{box-sizing:inherit; margin:0; padding:0;}
+html{scroll-behavior:smooth; scroll-padding-top:env(safe-area-inset-top,0px);}
+body{background:var(--bg); color:var(--cream); font-family:"Fraunces",Georgia,serif; line-height:1.65; -webkit-font-smoothing:antialiased;}
+h1,h2,.marquee{font-family:"Bebas Neue",Impact,sans-serif; letter-spacing:.04em; font-weight:400; color:var(--cream);}
+a{color:inherit;}
+img{max-width:100%;}
+.wrap{max-width:1080px; margin:0 auto; padding:0 28px;}
+.section{padding:88px 0;}
+.section + .section{border-top:1px solid var(--line);}
+.eyebrow{color:var(--gold); font-size:.95rem; letter-spacing:.03em;}
+
+/* HERO */
+.hero{
+  min-height:92vh; display:flex; flex-direction:column; justify-content:center;
+  position:relative; overflow:hidden;
+  background:
+    radial-gradient(ellipse 60% 45% at 82% 12%, rgba(200,162,77,.16), transparent 60%),
+    radial-gradient(ellipse 55% 40% at 12% 88%, rgba(122,35,49,.28), transparent 60%),
+    var(--bg);
+}
+.hero::before{
+  content:""; position:absolute; inset:0; pointer-events:none; opacity:.5;
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size:64px 64px; mask-image:linear-gradient(180deg, transparent, #000 40%, #000 60%, transparent);
+}
+.hero-inner{position:relative; padding:120px 28px 60px; max-width:1080px; margin:0 auto; width:100%;}
+.hero h1{font-size:clamp(3.2rem,10vw,7.5rem); line-height:.92;}
+.hero .sub{font-size:1.15rem; color:var(--muted); max-width:36ch; margin-top:22px;}
+.hero-stats{display:flex; flex-wrap:wrap; gap:36px; margin-top:52px; border-top:1px solid var(--line); padding-top:28px;}
+.stat b{display:block; font-family:"Bebas Neue"; font-size:2rem; color:var(--gold); letter-spacing:.02em;}
+.stat span{font-size:.85rem; color:var(--muted);}
+.cta-row{margin-top:44px; display:flex; gap:16px; flex-wrap:wrap;}
+.btn{display:inline-block; padding:14px 26px; border-radius:2px; font-family:"Fraunces"; font-size:.95rem; text-decoration:none; border:1px solid var(--gold);}
+.btn.solid{background:var(--gold); color:#171310;}
+.btn.ghost{color:var(--cream); border-color:var(--line);}
+
+/* MENU */
+.menu-cols{display:grid; grid-template-columns:repeat(3,1fr); gap:44px; margin-top:52px;}
+.menu-col h3{font-family:"Bebas Neue"; letter-spacing:.05em; font-size:1.4rem; color:var(--gold); margin-bottom:18px; padding-bottom:10px; border-bottom:1px solid var(--line);}
+.menu-col ul{list-style:none;}
+.menu-col li{padding:9px 0; border-bottom:1px dotted var(--line); color:var(--cream); font-size:1.02rem;}
+.menu-col li:last-child{border-bottom:none;}
+
+/* FEATURES */
+.feat-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); margin-top:52px; border:1px solid var(--line);}
+.feat{background:var(--bg); padding:30px 24px;}
+.feat h4{font-family:"Fraunces"; font-weight:600; font-size:1.05rem; margin-bottom:8px; color:var(--gold);}
+.feat p{color:var(--muted); font-size:.92rem;}
+
+/* TESTIMONIALS */
+.quote-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:36px; margin-top:52px;}
+.quote{background:var(--bg-alt); padding:28px 26px; border-left:2px solid var(--gold);}
+.quote p{font-style:italic; font-size:1.02rem;}
+.quote .who{margin-top:16px; color:var(--muted); font-size:.85rem; font-style:normal;}
+.rating-line{display:flex; align-items:baseline; gap:12px; margin-top:10px;}
+.rating-line b{font-family:"Bebas Neue"; font-size:2.4rem; color:var(--gold);}
+
+/* HOURS / LOCATION */
+.info-grid{display:grid; grid-template-columns:1.1fr 1fr; gap:64px; margin-top:52px;}
+.info-grid h3{font-family:"Bebas Neue"; letter-spacing:.04em; font-size:1.3rem; color:var(--gold); margin-bottom:14px;}
+.hours-row{display:flex; justify-content:space-between; padding:10px 0; border-bottom:1px dotted var(--line); font-size:1rem;}
+.addr p{margin-bottom:8px; color:var(--muted);}
+.addr a{color:var(--gold); text-decoration:none; border-bottom:1px solid var(--gold);}
+
+footer{padding:48px 0 calc(48px + env(safe-area-inset-bottom,0px)); text-align:center; color:var(--muted); font-size:.88rem;}
+footer .marquee{font-size:1.8rem; display:block; margin-bottom:10px; color:var(--cream);}
+.social{margin-top:14px;}
+.social a{margin:0 10px; color:var(--gold); text-decoration:none; border-bottom:1px solid transparent;}
+.social a:hover{border-color:var(--gold);}
+
+a:focus-visible, .btn:focus-visible{outline:2px solid var(--gold); outline-offset:3px;}
+
+@media (max-width:820px){
+  .menu-cols, .feat-grid, .quote-grid, .info-grid{grid-template-columns:1fr;}
+  .section{padding:60px 0;}
+}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow">Clifton, Karachi — Rooftop &amp; Lounge</p>
+    <h1>THE VEGAS<br>STUDIO</h1>
+    <p class="sub">A rooftop hangout in Block 4, Clifton — sheesha, steaks and late nights, open till the small hours.</p>
+    <div class="cta-row">
+      <a class="btn solid" href="tel:+923073759984">Reserve a table</a>
+      <a class="btn ghost" href="#menu">See the menu</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><b>4.2</b><span>1,467 Google reviews</span></div>
+      <div class="stat"><b>Rs 3–9K</b><span>per person, typical spend</span></div>
+      <div class="stat"><b>12PM–4AM</b><span>open daily, later on weekends</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="menu">
+  <div class="wrap">
+    <p class="eyebrow">On the table</p>
+    <h2 style="font-size:2.2rem; margin-top:6px;">Menu highlights</h2>
+    <div class="menu-cols">
+      <div class="menu-col">
+        <h3>To start</h3>
+        <ul>
+          <li>Saltish Fries</li>
+          <li>Prawn Tempura</li>
+          <li>Nachos Supreme</li>
+          <li>Cheese Fries with Sheesha</li>
+        </ul>
+      </div>
+      <div class="menu-col">
+        <h3>Mains</h3>
+        <ul>
+          <li>Chicken with Mushroom</li>
+          <li>Wood-fired Pizzas</li>
+          <li>Vegas Special Club Sandwich</li>
+          <li>Beef Burger with Fries</li>
+          <li>Fettuccine Alfredo (Chicken or Pasta)</li>
+          <li>Zinger Burger</li>
+          <li>Grilled Lobster</li>
+          <li>Fish Taco &amp; Fish and Chips</li>
+          <li>Moroccan Steak</li>
+        </ul>
+      </div>
+      <div class="menu-col">
+        <h3>Drinks &amp; desserts</h3>
+        <ul>
+          <li>Strawberry Mojito (mocktail)</li>
+          <li>Vegas Special Shake</li>
+          <li>Cappuccino</li>
+          <li>Molten Lava Cake</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <p class="eyebrow">The experience</p>
+    <h2 style="font-size:2.2rem; margin-top:6px;">Built for a long evening</h2>
+    <div class="feat-grid">
+      <div class="feat"><h4>Rooftop seating</h4><p>Open-air tables above Clifton, best for sheesha and a slow night.</p></div>
+      <div class="feat"><h4>Private dining room</h4><p>A closed-off space for family gatherings or a table you'd rather keep quiet.</p></div>
+      <div class="feat"><h4>Your playlist</h4><p>Staff will queue up the songs your table wants to hear.</p></div>
+      <div class="feat"><h4>Halal &amp; vegetarian</h4><p>Fully halal kitchen with a proper vegetarian selection, not an afterthought.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <p class="eyebrow">What guests say</p>
+    <div class="rating-line"><b>4.2</b><span style="color:var(--muted)">out of 5 · 1,467 ratings on Google</span></div>
+    <div class="quote-grid">
+      <div class="quote">
+        <p>"The rooftop sheesha setup is the reason people keep coming back, and the staff are easy to flag down."</p>
+        <div class="who">Google review, paraphrased</div>
+      </div>
+      <div class="quote">
+        <p>"Service went further than expected on a recent visit — food came out well and the table was looked after all night."</p>
+        <div class="who">Google review, paraphrased</div>
+      </div>
+      <div class="quote">
+        <p>"A regular spot for one reviewer, who called the overall experience one of the better nights out in the area."</p>
+        <div class="who">Google review, paraphrased</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="info-grid">
+      <div>
+        <h3>Hours &amp; entry</h3>
+        <div class="hours-row"><span>Weekdays</span><span>12:00 PM – 3:00 AM</span></div>
+        <div class="hours-row"><span>Weekends</span><span>12:00 PM – 4:00 AM</span></div>
+        <div class="hours-row" style="border-bottom:none;"><span>Entry</span><span>Rs. 1,000 per person</span></div>
+      </div>
+      <div class="addr">
+        <h3>Find us</h3>
+        <p>F-44, Scheme 5, Block 4, Clifton, Karachi</p>
+        <p>Call: <a href="tel:03111183427">0311 1183427</a></p>
+        <p>Reservations: <a href="tel:+923414333366">+92 341 4333366</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="marquee">THE VEGAS STUDIO</span>
+  Block 4, Clifton, Karachi
+  <div class="social">
+    <a href="https://www.instagram.com/thevegasstudiopk" target="_blank" rel="noopener">Instagram</a>
+    <a href="#" onclick="return false;">Facebook</a>  
+  <p>© 2026 The Vegas Studio. All rights reserved. | Website by Dev Sufiyan</p>
+  </div>
+
+</footer>
+
+</body>
+</html>
